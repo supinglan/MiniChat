@@ -12,14 +12,19 @@ public:
     int id;
     SOCKET tcps;
     sockaddr_in clientaddr;
-    char* serverName;
-    int ProcessReq(ReqPacket* req, SOCKADDR_IN *clientAddr);
-    int SendRes(ResPacket* res);
-    int SendIns(InsPacket* ins);
-    int ReceiveReq( char *req);
-    static int getTime(char * str);
+
+    int ProcessReq(ReqPacket *req, SOCKADDR_IN *clientAddr);
+
+    int SendRes(ResPacket *res);
+
+    int SendIns(InsPacket *ins);
+
+    int ReceiveReq(char *req);
+
+    static int getTime(char *str);
 };
-extern std::map<int,Client> list;
+
+extern std::map<int, Client> list;
 extern char *serverName;
 
 #endif //LAB5_CLIENT_H

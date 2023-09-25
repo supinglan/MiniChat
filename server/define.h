@@ -13,40 +13,35 @@
 #define RESPONSE_TEXT_SIZE 256
 
 //请求报文的类型
-typedef enum
-{
-    GETTIME,GETNAME,GETCLIENTLIST,SEND,QUIT
+typedef enum {
+    GETTIME, GETNAME, GETCLIENTLIST, SEND, QUIT
 } RequestID;
 
 //请求报文，从客户端发往服务器
-typedef struct RequestPacket
-{
+typedef struct RequestPacket {
     RequestID requestId;
+    int clientId;
     char text[REQUEST_PARAM_SIZE];
 } ReqPacket;
 
 //指示报文的类型
-typedef enum
-{
+typedef enum {
     MESSAGE
 } InstructionID;
 
 //指示报文，从服务器发往客户端
-typedef struct InstructionPacket
-{
+typedef struct InstructionPacket {
     InstructionID instructionId;
     char text[INSTRUCTION_TEXT_SIZE];
 } InsPacket;
 
 //回复报文的类型
-typedef enum
-{
-    OK,ERR
+typedef enum {
+    OK, ERR
 } ResponseID;
 
 //回复报文，从服务器发往客户端
-typedef struct ResponsePacket
-{
+typedef struct ResponsePacket {
     ResponseID responseId;
     char text[RESPONSE_TEXT_SIZE];
 } ResPacket;
