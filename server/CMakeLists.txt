@@ -5,6 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 link_libraries(ws2_32)
 
-add_executable(lab5 server.cpp client.h client.cpp)
+add_executable(server server.cpp client.h client.cpp)
 
 
